@@ -1,5 +1,5 @@
 const express = require('express')
-const db = require('../database/dbcards')
+const db = require('../database/munchkinCardDb')
 const jsonParser = express.json()
 
 var cardRouter = express.Router()
@@ -10,9 +10,9 @@ cardRouter.get("/", function(req, res){
     })
 })
 
-cardRouter.get("/:category", function(req, res){
-    const category = req.params.category
-    db.getCards(category, function(cards){
+cardRouter.get("/:typeMuchkin", function(req, res){
+    const typeMuchkin = req.params.typeMuchkin
+    db.getCards(typeMuchkin, function(cards){
         res.json(cards)
     })
 })

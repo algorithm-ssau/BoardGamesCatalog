@@ -1,10 +1,12 @@
 const mongoose = require('mongoose')
 var CardModel = require("../schemes/munchkinCardSchema")
 
-module.exports.saveCard = function(typeMunchkin){
+module.exports.saveCard = function(typeMunchkin, cardName, cardDescription){
     
     const card = new CardModel({
-        typeMunchkin : typeMunchkin
+        typeMunchkin : typeMunchkin,
+        cardName : cardName,
+        cardDescription : cardDescription
     })
 
     card.save().then(function(doc){
