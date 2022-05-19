@@ -1,20 +1,20 @@
 const express = require('express')
-const db = require('../database/typeMunchkinDb')
+const db = require('../database/munchkin/typesMunchkinDb')
 const jsonParser = express.json()
 
-var cardRouter = express.Router()
+var typesMunchkinRouter = express.Router()
 
-cardRouter.get("/", function(req, res){
-    db.getCardCategories(function(types){
+typesMunchkinRouter.get("/", function(req, res){
+    db.getTypesMunchkin(function(types){
         res.json(types)
     })
 })
 
-cardRouter.post("/", jsonParser, function(req, res){
+typesMunchkinRouter.post("/", jsonParser, function(req, res){
     if (!req.body) res.sendStatus(400)
     const typeMunchkin = req.body.typeMunchkin
     db.saveCard(typeMunchkin)
     res.sendStatus(201)
 })
 
-module.exports = cardRouter
+module.exports = typesMunchkinRouter

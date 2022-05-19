@@ -7,7 +7,8 @@ var treasureMunchkinScheme = new Schema({
     cardName : String,
     target : String,
     equipment : String,
-    cost : String
+    description : String,
+    cost : Number
 })
 
 module.exports = mongoose.model('treasureMunchkinScheme', treasureMunchkinScheme)

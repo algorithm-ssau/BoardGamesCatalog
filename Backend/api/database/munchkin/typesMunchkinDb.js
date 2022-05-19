@@ -1,9 +1,9 @@
 const mongoose = require('mongoose')
-var CardModel = require("../..schemes/typeMunchkinSchema")
+var typeMunchkin = require("../..schemes/typeMunchkinScheme")
 
 module.exports.saveTypeMunchkin = function(typeMunchkin){
     
-    const card = new CardModel({
+    const type = new typeMunchkin({
         typeMunchkin : typeMunchkin
     })
 
@@ -12,14 +12,8 @@ module.exports.saveTypeMunchkin = function(typeMunchkin){
     })
 }
 
-module.exports.getCardTypes = function(callback){
+module.exports.getTypesMunchkin = function(callback){
     CardModel.find({}, 'type', function(error, types){
         callback(types)
-    })
-}
-
-module.exports.getCards = function(type, callback){
-    CardModel.find({"type" : type}, function(error, cards){
-        callback(cards)
     })
 }
