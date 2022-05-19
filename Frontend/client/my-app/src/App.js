@@ -108,7 +108,73 @@ function App() {
           <div className="u-clearfix u-expanded-width u-gutter-10 u-layout-wrap u-layout-wrap-1">
             <div className="u-gutter-0 u-layout">
               <div className="u-layout-row">
-               
+              <div className="u-align-left u-container-style u-layout-cell u-size-14 u-layout-cell-1">
+                  <div className="u-container-layout u-container-layout-1">
+                    <div className="u-border-2 u-border-grey-75 u-expanded-width u-form u-radius-20 u-form-1">
+                      <form
+                        action="//publish.nicepage.com/Form/Process"
+                        method="POST"
+                        className="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form"
+                        source="email"
+                        name="form"
+                        style={{ padding: 10 }}
+                      >
+                        <input
+                          type="hidden"
+                          id="siteId"
+                          name="siteId"
+                          defaultValue={1809772}
+                        />
+                        <input
+                          type="hidden"
+                          id="pageId"
+                          name="pageId"
+                          defaultValue={1809782}
+                        />
+                        <div className="u-form-group u-form-name">
+                          <label htmlFor="name-aa34" className="u-label">
+                            Поиск
+                          </label>
+                          <input
+                            type="text"
+                            placeholder="что хотите найти?"
+                            id="name-aa34"
+                            name="name"
+                            className="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white"
+                            required=""
+                          />
+                        </div>
+                        <div className="u-align-left u-form-group u-form-submit">
+                          <a
+                            href="#"
+                            className="u-btn u-btn-round u-btn-submit u-button-style u-radius-9"
+                          >
+                            Найти
+                          </a>
+                          <input
+                            type="submit"
+                            defaultValue="submit"
+                            className="u-form-control-hidden"
+                          />
+                        </div>
+                        <div className="u-form-send-message u-form-send-success">
+                          {" "}
+                          Спасибо! Ваше сообщение отправлено.{" "}
+                        </div>
+                        <div className="u-form-send-error u-form-send-message">
+                          {" "}
+                          Отправка не удалась. Пожалуйста, исправьте ошибки и
+                          попробуйте еще раз.{" "}
+                        </div>
+                        <input
+                          type="hidden"
+                          defaultValue=""
+                          name="recaptchaResponse"
+                        />
+                      </form>
+                    </div>
+                  </div>
+                </div>
                 <div className="u-align-left u-container-style u-layout-cell u-size-32 u-white u-layout-cell-2">
                   <div
                     className="u-container-layout u-container-layout-2"
