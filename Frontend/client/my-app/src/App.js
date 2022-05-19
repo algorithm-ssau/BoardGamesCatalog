@@ -4,7 +4,6 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react';
 
 function App() {
-  //respon = '';
 
   const [appState, setAppState] = useState(
     {
@@ -15,8 +14,7 @@ function App() {
   useEffect(() => {
     const apiUrl = 'http://localhost:5500/';
     axios.get(apiUrl).then((resp) => {
-      //respon = resp.data;
-      console.log(resp.data);
+      console.log('images/' + appState.kekw);
       setAppState({
         kekw: resp.data
       });
@@ -27,9 +25,9 @@ function App() {
   return (
     <div className="app">
     {
-      //respon.data
       appState.kekw
     }
+    <img src={process.env.PUBLIC_URL +  '/' + appState.kekw}/>
     <p>really?</p>
     </div>
   );
