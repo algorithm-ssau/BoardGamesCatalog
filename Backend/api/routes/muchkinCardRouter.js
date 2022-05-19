@@ -1,5 +1,5 @@
 const express = require('express')
-const db = require('../database/munchkinCardDb')
+const db = require('../database/munchkin/munchkinCardDb')
 const jsonParser = express.json()
 
 var cardRouter = express.Router()
@@ -21,10 +21,12 @@ cardRouter.post("/", jsonParser, function(req, res){
     if (!req.body) res.sendStatus(400)
     
     const typeMunchkin = req.body.typeMunchkin
+    const typeCreature = req.body.typeCreature
+    const cardLevel = req.body.cardLevel
     const cardName = req.body.cardName
     const cardDescription = req.body.cardDescription
 
-    db.saveCard(typeMunchkin, cardName, cardDescription)
+    db.saveCard(typeMunchkin, typeCreature,cardLevel, cardName, cardDescription)
     res.sendStatus(201)
 })
 
