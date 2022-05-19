@@ -202,6 +202,43 @@ function App() {
                           прелестями Манчкина, а так же с ужасающими монстрами,
                           вдохновлёнными вселенной Лавкрафта.&nbsp;
                         </p>
+                        <p className="u-text u-text-default u-text-4">
+                          Теги:{" "}
+                          <span
+                            style={{ textDecoration: "underline !important" }}
+                            className="u-text-custom-color-1"
+                          >
+                            Манчкин
+                          </span>
+                          ,{" "}
+                          <span
+                            style={{ textDecoration: "underline !important" }}
+                            className="u-text-custom-color-1"
+                          >
+                            для нескольких игроков
+                          </span>
+                          ,{" "}
+                          <span
+                            className="u-text-custom-color-1"
+                            style={{ textDecoration: "underline !important" }}
+                          >
+                            карточная
+                          </span>
+                          ,{" "}
+                          <span
+                            className="u-text-custom-color-1"
+                            style={{ textDecoration: "underline !important" }}
+                          >
+                            экшн
+                          </span>
+                          ,{" "}
+                          <span
+                            className="u-text-custom-color-1"
+                            style={{ textDecoration: "underline !important" }}
+                          >
+                            монстры
+                          </span>
+                        </p>
                   </div>
                 </div>
                 
