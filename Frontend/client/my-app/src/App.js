@@ -180,6 +180,28 @@ function App() {
                     className="u-container-layout u-container-layout-2"
                     src=""
                   >
+                   
+                    <img
+                          className="u-image u-image-default u-image-1"
+                          src="/images/28d9c796-7499-0266-dda3-b0088adb2828.jpg"
+                          alt=""
+                          data-image-width={1147}
+                          data-image-height={856}
+                        />
+                    <h3 className="u-text u-text-2">Манчкин Ктулху</h3>
+                    <p className="u-text u-text-3">
+                          {" "}
+                          «Манчкин Ктулху» — это продолжение серии&nbsp;
+                          <a
+                            href="https://www.mosigra.ru/Face/Show/munchkin/"
+                            className="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-2"
+                          >
+                            Манчкин
+                          </a>
+                          . Это не дополнение, а отдельная игра, со всеми
+                          прелестями Манчкина, а так же с ужасающими монстрами,
+                          вдохновлёнными вселенной Лавкрафта.&nbsp;
+                        </p>
                   </div>
                 </div>
                 
