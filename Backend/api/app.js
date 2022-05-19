@@ -9,9 +9,11 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var testAPIRouter = require('./routes/testAPI');
 var cardRouter = require('./routes/muchkinCardRouter');
+const mongoose = require('mongoose');
+const urlConnection = "mongodb://localhost:27017/BoardGamesCatalog"
 
 var app = express();
-
+mongoose.connect(urlConnection)
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
