@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-var CardModel = require("../schemes/typeMunchkinSchema")
+var CardModel = require("../..schemes/typeMunchkinSchema")
 
 module.exports.saveTypeMunchkin = function(typeMunchkin){
     
