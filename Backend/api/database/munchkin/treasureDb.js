@@ -1,9 +1,9 @@
 const mongoose = require('mongoose')
-var CardModel = require("../..schemes/treasureMunchkinScheme")
+var treasureModel = require("../../schemes/treasureMunchkinScheme")
 
 module.exports.saveTypeMunchkin = function(bonus, cardName, target, equipment, description, cost ){
     
-    const card = new CardModel({
+    const treasure = new treasureModel({
         bonus : bonus,
         cardName : cardName,
         target : target,
@@ -12,13 +12,13 @@ module.exports.saveTypeMunchkin = function(bonus, cardName, target, equipment, d
         cost : cost
     })
 
-    card.save().then(function(doc){
+    treasure.save().then(function(doc){
         console.log("Сохранен объект", doc)
     })
 }
 
 module.exports.getTreasures = function(callback){
-    CardModel.find({}, 'treasure', function(error, treasure){
+    treasureModel.find({}, 'treasure', function(error, treasure){
         callback(treasure)
     })
 }

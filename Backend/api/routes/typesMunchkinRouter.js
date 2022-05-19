@@ -13,7 +13,7 @@ typesMunchkinRouter.get("/", function(req, res){
 typesMunchkinRouter.post("/", jsonParser, function(req, res){
     if (!req.body) res.sendStatus(400)
     const typeMunchkin = req.body.typeMunchkin
-    db.saveCard(typeMunchkin)
+    db.saveTypeMunchkin(typeMunchkin)
     res.sendStatus(201)
 })
 

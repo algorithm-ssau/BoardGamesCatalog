@@ -1,5 +1,5 @@
 const express = require('express')
-const db = require('../database/treasureDb')
+const db = require('../database/munchkin/treasureDb')
 const jsonParser = express.json()
 
 var treasureRouter = express.Router()
