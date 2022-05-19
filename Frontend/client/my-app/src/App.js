@@ -180,7 +180,8 @@ function App() {
                     className="u-container-layout u-container-layout-2"
                     src=""
                   >
-                   
+                   <div className="u-border-2 u-border-grey-75 u-container-style u-product u-radius-26 u-shape-round u-product-1">
+                      <div className="u-container-layout u-container-layout-3">
                     <img
                           className="u-image u-image-default u-image-1"
                           src="/images/28d9c796-7499-0266-dda3-b0088adb2828.jpg"
@@ -238,10 +239,35 @@ function App() {
                           >
                             монстры
                           </span>
-                        </p>
+                        </p>    
                   </div>
                 </div>
-                
+                <div className="u-absolute-hcenter u-border-3 u-border-grey-dark-1 u-line u-line-horizontal u-line-1" />
+                  </div>
+                </div>
+                <div className="u-align-left u-container-style u-layout-cell u-size-14 u-layout-cell-3">
+                  <div className="u-container-layout u-container-layout-4">
+                    <div className="u-expanded-width u-table u-table-responsive u-table-1">
+                      <table className="right-table">
+                        <colgroup>
+                          <col width="100%" />
+                        </colgroup>
+                        <tbody className="u-table-body">
+                          <tr style={{ height: 166 }}>
+                            <td>
+                              <span style={{ fontSize: "1.875rem" }}>
+                                Последние новости
+                              </span>
+                              <br />
+                              Релиз сайта намечен на 2022 год
+                              <br />
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
