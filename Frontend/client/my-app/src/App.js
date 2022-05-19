@@ -5,7 +5,17 @@ function App() {
   return (
     
     <>
-    
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta charSet="utf-8" />
+      <meta name="keywords" content="Настольные игры" />
+      <meta name="description" content="" />
+      <meta name="page_type" content="np-template-header-footer-from-plugin" />
+      <title>Главная</title>
+      <meta name="theme-color" content="#478ac9" />
+      <meta property="og:title" content="Главная" />
+      <meta property="og:type" content="website" />
+      <header className="u-clearfix u-header u-header" id="sec-4120">
+    <div className="u-clearfix u-sheet u-valign-middle u-sheet-1">
       <nav className="u-menu u-menu-dropdown u-offcanvas u-menu-1">
         <div
           className="menu-collapse"
@@ -99,6 +109,8 @@ function App() {
         </div>
         
       </nav>
+      </div>
+  </header>
       <section
         className="skrollable u-align-center-lg u-align-center-md u-align-center-xl u-align-left-sm u-align-left-xs u-clearfix u-section-1"
         id="sec-5f29"
@@ -111,14 +123,7 @@ function App() {
               <div className="u-align-left u-container-style u-layout-cell u-size-14 u-layout-cell-1">
                   <div className="u-container-layout u-container-layout-1">
                     <div className="u-border-2 u-border-grey-75 u-expanded-width u-form u-radius-20 u-form-1">
-                      <form
-                        action="//publish.nicepage.com/Form/Process"
-                        method="POST"
-                        className="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form"
-                        source="email"
-                        name="form"
-                        style={{ padding: 10 }}
-                      >
+                      
                         <input
                           type="hidden"
                           id="siteId"
@@ -171,7 +176,7 @@ function App() {
                           defaultValue=""
                           name="recaptchaResponse"
                         />
-                      </form>
+                      
                     </div>
                   </div>
                 </div>
@@ -203,6 +208,7 @@ function App() {
                           прелестями Манчкина, а так же с ужасающими монстрами,
                           вдохновлёнными вселенной Лавкрафта.&nbsp;
                         </p>
+                        
                         <p className="u-text u-text-default u-text-4">
                           Теги:{" "}
                           <span
@@ -241,8 +247,8 @@ function App() {
                           </span>
                         </p>    
                   </div>
+                  <div className="u-absolute-hcenter u-border-3 u-border-grey-dark-1 u-line u-line-horizontal u-line-1" />
                 </div>
-                <div className="u-absolute-hcenter u-border-3 u-border-grey-dark-1 u-line u-line-horizontal u-line-1" />
                   </div>
                 </div>
                 <div className="u-align-left u-container-style u-layout-cell u-size-14 u-layout-cell-3">
