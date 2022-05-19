@@ -67,6 +67,36 @@ function App() {
             </li>
           </ul>
         </div>
+        <div className="u-custom-menu u-nav-container-collapse">
+          <div className=" u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
+            <div className="u-inner-container-layout u-sidenav-overflow">
+              <div className="u-menu-close" />
+              <ul className="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2">
+                <li className="u-nav-item">
+                  <a
+                    className="u-button-style u-nav-link"
+                    href="//Главная.html"
+                  >
+                    Главная
+                  </a>
+                </li>
+                <li className="u-nav-item">
+                  <a className="u-button-style u-nav-link" href="//О-нас.html">
+                    О нас
+                  </a>
+                </li>
+                <li className="u-nav-item">
+                  <a
+                    className="u-button-style u-nav-link"
+                    href="//Контакты.html"
+                  >
+                    Контакты
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
         
       </nav>
       <section
