@@ -8,9 +8,14 @@ var cors = require("cors");
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var testAPIRouter = require('./routes/testAPI');
+var cardRouter = require('./routes/muchkinCardRouter');
+var typesMunchkinRouter = require('./routes/typesMunchkinRouter');
+const mongoose = require('mongoose');
+const treasureRouter = require('./routes/treasureMunckinRouter');
+const urlConnection = "mongodb://localhost:27017/BoardGamesCatalog"
 
 var app = express();
-
+mongoose.connect(urlConnection)
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -26,6 +31,9 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/testAPI', testAPIRouter);
 
+app.use('/munchkin-card', cardRouter);
+app.use('/munchkin-treasures', treasureRouter);
+app.use('/munchkin-types', typesMunchkinRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
