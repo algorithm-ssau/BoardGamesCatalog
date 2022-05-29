@@ -15789,6 +15789,13 @@ p {
 }
 .u-align-center {
   text-align: center;
+  /* margin: auto; */
+}
+.center-div
+{
+  flex: 0 0 32.5%;
+  margin: 0 auto;
+  /* width: 100px;  */
 }
 @media (min-width: 1400px) {
   .u-align-center-xxl {

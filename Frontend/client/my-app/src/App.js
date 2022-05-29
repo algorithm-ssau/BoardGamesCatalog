@@ -2,30 +2,37 @@ import logo from './logo.svg';
 import './App.css';
 import axios from 'axios'
 import React, { useEffect, useState } from 'react';
+import CthulhuShort from './short_descriptions/Cthulhu';
 
 function App() {
 
-  const [appState, setAppState] = useState(
-    {
-      kekw: null,
-    }
-  )
-  
+  const [appState, setAppState] = useState();
+
   useEffect(() => {
-    const apiUrl = 'http://localhost:5500/';
+    const apiUrl = 'http://localhost:5500/munchkin-types';
     axios.get(apiUrl).then((resp) => {
-      //console.log('images/' + appState.kekw);
-      setAppState({
-        kekw: resp.data
-      });
+      console.log(resp.data);
+      const allMunchkins = resp.data;
+      setAppState(allMunchkins);
     });
   }, [setAppState]);
 
- 
+
+
+
+  if (!appState || appState.length === 0) return <p>Нет данных.</p>
   return (
-    
+
     <>
-    <img src={process.env.PUBLIC_URL +  '/' + appState.kekw}/>
+      {/* {
+        appState.map((person) =>
+            <tr key={person.id}>
+                <td>{person.typeMunchkin}</td>
+            </tr>
+        )
+        
+
+      } */}
       <nav className="u-menu u-menu-dropdown u-offcanvas u-menu-1">
         <div
           className="menu-collapse"
@@ -117,7 +124,7 @@ function App() {
             </div>
           </div>
         </div>
-        
+
       </nav>
       <section
         className="skrollable u-align-center-lg u-align-center-md u-align-center-xl u-align-left-sm u-align-left-xs u-clearfix u-section-1"
@@ -128,7 +135,7 @@ function App() {
           <div className="u-clearfix u-expanded-width u-gutter-10 u-layout-wrap u-layout-wrap-1">
             <div className="u-gutter-0 u-layout">
               <div className="u-layout-row">
-              <div className="u-align-left u-container-style u-layout-cell u-size-14 u-layout-cell-1">
+                <div className="u-align-left u-container-style u-layout-cell u-size-14 u-layout-cell-1">
                   <div className="u-container-layout u-container-layout-1">
                     <div className="u-border-2 u-border-grey-75 u-expanded-width u-form u-radius-20 u-form-1">
                       <form
@@ -195,76 +202,55 @@ function App() {
                     </div>
                   </div>
                 </div>
-                <div className="u-align-left u-container-style u-layout-cell u-size-32 u-white u-layout-cell-2">
-                  <div
-                    className="u-container-layout u-container-layout-2"
-                    src=""
-                  >
-                   <div className="u-border-2 u-border-grey-75 u-container-style u-product u-radius-26 u-shape-round u-product-1">
-                      <div className="u-container-layout u-container-layout-3">
-                    <img
-                          className="u-image u-image-default u-image-1"
-                          src="/images/28d9c796-7499-0266-dda3-b0088adb2828.jpg"
-                          alt=""
-                          data-image-width={1147}
-                          data-image-height={856}
-                        />
-                    <h3 className="u-text u-text-2">Манчкин Ктулху</h3>
-                    <p className="u-text u-text-3">
-                          {" "}
-                          «Манчкин Ктулху» — это продолжение серии&nbsp;
-                          <a
-                            href="https://www.mosigra.ru/Face/Show/munchkin/"
-                            className="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-2"
-                          >
-                            Манчкин
-                          </a>
-                          . Это не дополнение, а отдельная игра, со всеми
-                          прелестями Манчкина, а так же с ужасающими монстрами,
-                          вдохновлёнными вселенной Лавкрафта.&nbsp;
-                        </p>
-                        <p className="u-text u-text-default u-text-4">
-                          Теги:{" "}
-                          <span
-                            style={{ textDecoration: "underline !important" }}
-                            className="u-text-custom-color-1"
-                          >
-                            Манчкин
-                          </span>
-                          ,{" "}
-                          <span
-                            style={{ textDecoration: "underline !important" }}
-                            className="u-text-custom-color-1"
-                          >
-                            для нескольких игроков
-                          </span>
-                          ,{" "}
-                          <span
-                            className="u-text-custom-color-1"
-                            style={{ textDecoration: "underline !important" }}
-                          >
-                            карточная
-                          </span>
-                          ,{" "}
-                          <span
-                            className="u-text-custom-color-1"
-                            style={{ textDecoration: "underline !important" }}
-                          >
-                            экшн
-                          </span>
-                          ,{" "}
-                          <span
-                            className="u-text-custom-color-1"
-                            style={{ textDecoration: "underline !important" }}
-                          >
-                            монстры
-                          </span>
-                        </p>    
-                  </div>
+
+
+                <div className="u-align-center u-container-style u-layout-cell  u-white u-layout-cell-2 center-div">
+
+
+                  {/* TABLE WITH MUCHKIN TYPES */}
+                  {/* <tr key={appState.munchkins.id}> */}
+                  <table>
+                    <tbody>
+                    {appState.map((munchkin) => (
+                      <tr key={munchkin._id}>
+
+                        <td>
+                          {console.log(process.env.PUBLIC_URL + '/' + munchkin.typeMunchkin)}
+                          <div
+                            className="u-align-center u-container-layout u-container-layout-2"
+                            src="">
+                            <div className="u-border-2 u-border-grey-75 u-container-style u-product u-radius-26 u-shape-round u-product-1">
+                              <div className="u-container-layout u-container-layout-3">
+                                <img
+                                  className="u-image u-image-default u-image-1"
+                                  src={process.env.PUBLIC_URL + '/munchkins_type_pictures/' + munchkin.typeMunchkin + '.jpg'}
+                                  data-image-width={1147}
+                                  data-image-height={856}
+                                />
+                                {
+                                  (() => {
+                                    console.log(munchkin.typeMunchkin);
+                                    switch (String(munchkin.typeMunchkin)) {
+                                      case 'Cthulhu': return <CthulhuShort />;
+                                      default: return <p>No data</p>;
+                                    }
+                                  })()}
+                              </div>
+
+
+                            </div>
+
+                            <div className="u-absolute-hcenter u-border-3 u-border-grey-dark-1 u-line u-line-horizontal u-line-1" />
+                          </div>
+                          {/* </tr> */}
+
+                        </td>
+                      </tr>
+                    ))}
+                    </tbody>
+                  </table>
                 </div>
-                <div className="u-absolute-hcenter u-border-3 u-border-grey-dark-1 u-line u-line-horizontal u-line-1" />
-                  </div>
-                </div>
+
                 <div className="u-align-left u-container-style u-layout-cell u-size-14 u-layout-cell-3">
                   <div className="u-container-layout u-container-layout-4">
                     <div className="u-expanded-width u-table u-table-responsive u-table-1">
@@ -296,7 +282,7 @@ function App() {
       <section className="u-align-center u-clearfix u-section-2" id="sec-287a">
         <div className="u-clearfix u-sheet u-sheet-1" />
       </section>
-      
+
     </>
   );
 }
