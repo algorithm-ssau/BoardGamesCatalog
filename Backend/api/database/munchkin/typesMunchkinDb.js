@@ -1,19 +1,19 @@
 const mongoose = require('mongoose')
-var typeMunchkin = require("../../schemes/typeMunchkinScheme")
+var TypeMunch = require("../../schemes/typeMunchkinScheme")
 
-module.exports.saveTypeMunchkin = function(typeMunchkin){
+module.exports.saveTypeMunchkin = function(typeM){
     
-    const type = new typeMunchkin({
-        typeMunchkin : typeMunchkin
+    const newTypeM = new TypeMunch({
+        typeMunchkin : typeM
     })
 
-    type.save().then(function(doc){
+    newTypeM.save().then(function(doc){
         console.log("Сохранен объект", doc)
     })
 }
 
 module.exports.getTypesMunchkin = function(callback){
-    typeMunchkin.find({}, 'type', function(error, types){
+    TypeMunch.find({}, 'typeMunchkin', function(error, types){
         callback(types)
     })
 }
