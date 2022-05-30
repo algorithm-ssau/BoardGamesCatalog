@@ -13,7 +13,7 @@ module.exports.saveTypeMunchkin = function(typeM){
 }
 
 module.exports.getTypesMunchkin = function(callback){
-    TypeMunch.find({}, 'type', function(error, types){
+    TypeMunch.find({}, 'typeMunckin', function(error, types){
         callback(types)
     })
 }
