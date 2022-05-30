@@ -1,10 +1,12 @@
 const mongoose = require('mongoose')
 var TypeMunch = require("../../schemes/typeMunchkinScheme")
 
-module.exports.saveTypeMunchkin = function(typeM){
+module.exports.saveTypeMunchkin = function(typeM, typeMunchkinRus, tags){
     
     const newTypeM = new TypeMunch({
-        typeMunchkin : typeM
+        typeMunchkin : typeM,
+        typeMunchkinRus : typeMunchkinRus,
+        tags : tags
     })
 
     newTypeM.save().then(function(doc){
