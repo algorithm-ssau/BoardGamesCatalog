@@ -4,6 +4,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import CthulhuShort from './short_descriptions/Cthulhu';
+import CthulhuLong from './long_descriptions/Cthulhu';
 import Carousel from "react-simply-carousel";
 
 
@@ -475,10 +476,6 @@ function App() {
 
 
                       <div className="u-align-center u-container-style u-layout-cell u-white u-layout-cell-2 center-div">
-
-
-                        {/* TABLE WITH MUCHKIN TYPES */}
-                        {/* <tr key={appState.munchkins.id}> */}
                         <table>
                           <tbody>
                           <tr>
@@ -503,11 +500,13 @@ function App() {
                               ))}
                             </Carousel>
                             </td>
-                          
+                            <td>
+                                <CthulhuLong/>
+                            </td>
                           </tr>
                           <tr>
                             <td>
-                              <CthulhuShort></CthulhuShort>
+                              <CthulhuShort/>
                             </td>
                           </tr>
                           </tbody>
