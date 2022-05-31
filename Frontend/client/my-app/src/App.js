@@ -10,26 +10,26 @@ import Carousel from "react-simply-carousel";
 
 function App() {
 
-  const [appState, setAppState] = useState();
-  const [cards, setCards] = useState();
+  const [appState, setAppState] = useState([]);
+  const [cards, setCards] = useState([]);
 
   useEffect(() => {
-    const apiUrl = 'http://localhost:5500/munchkin-types';
+    const apiUrl =`${process.env.REACT_APP_API_URL}/munchkin-types`;
     axios.get(apiUrl).then((resp) => {
       console.log(resp.data);
       const allMunchkins = resp.data;
       setAppState(allMunchkins);
     });
-  }, [setAppState]);
+  }, []);
 
   useEffect(() => {
-    const apiUrl = 'http://localhost:5500/munchkin-card/:Cthulhu';
+    const apiUrl =`${process.env.REACT_APP_API_URL}/munchkin-card/:Cthulhu`;
     axios.get(apiUrl).then((resp) => {
       console.log(resp.data);
       const allCards = resp.data;
       setCards(allCards);
     });
-  }, [setCards]);
+  }, []);
 
   // state = {
   //   activeSlideIndex: 0,
