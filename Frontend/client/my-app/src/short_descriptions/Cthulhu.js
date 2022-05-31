@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 export default class Cthulhu extends Component {
     render() {
         return (
             <div>
-                <h3 className="u-text u-text-2">Манчкин Ктулху</h3>
+                <h3 className="u-text u-text-2"><Link to="/cthulhu">Манчкин Ктулху</Link></h3>
                 <p className="u-text u-text-3">
                     {" "}
                     «Манчкин Ктулху» — это продолжение серии&nbsp;
@@ -35,7 +36,11 @@ export default class Cthulhu extends Component {
                     </span>
                     ,{" "}
                     <span className="u-text-custom-color-1" style={{ textDecoration: "underline !important" }}>
-                        монстры
+                        приключения
+                    </span>
+                    ,{" "}
+                    <span className="u-text-custom-color-1" style={{ textDecoration: "underline !important" }}>
+                        фентези
                     </span>
                 </p>
             </div>
