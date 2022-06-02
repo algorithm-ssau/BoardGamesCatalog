@@ -21,12 +21,12 @@ cardRouter.post("/", jsonParser, function(req, res){
     if (!req.body) res.sendStatus(400)
     
     const typeMunchkin = req.body.typeMunchkin
-    const typeCreature = req.body.typeCreature
-    const cardLevel = req.body.cardLevel
-    const cardName = req.body.cardName
+    const cardNameEng = req.body.cardNameEng
+    const cardNameRus = req.body.cardNameRus
     const cardDescription = req.body.cardDescription
+    const cardType = req.body.cardType
 
-    db.saveCard(typeMunchkin, typeCreature,cardLevel, cardName, cardDescription)
+    db.saveCard(typeMunchkin, cardNameEng, cardNameRus, cardDescription, cardType)
     res.sendStatus(201)
 })
 
