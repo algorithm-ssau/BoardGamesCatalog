@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
-export default class Cthulhu extends Component {
+export default class ClassicShortForSelf extends Component {
     render() {
         return (
             <div>
-                <h3 className="u-text u-text-default"><Link to="/classic">Манчкин</Link></h3>
+                <h3 className="u-align-center u-text u-text-1"><Link to="/classic">Манчкин</Link></h3>
                 <p className="u-text u-text-default">
                 {" "}
                     «Манчкин» — это первая и главная игра в серии Манчкин.

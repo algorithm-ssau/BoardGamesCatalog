@@ -3,7 +3,11 @@ import './App.css';
 import axios from 'axios'
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import Carousel from "react-simply-carousel";
+// import Carousel from 'react-simply-carousel';
+// import Carousel from 'react-multi-carousel';
+// import 'react-multi-carousel/lib/styles.css'
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from 'react-responsive-carousel';
 
 import CthulhuShort from './short_descriptions/CthulhuShort';
 import CthulhuShortForSelf from './short_description_for_each_page/CthulhuShortForSelf';
@@ -20,6 +24,13 @@ function App() {
   const [cardsCthulhu, setCardsCthulhu] = useState([]);
   const [cardsClassic, setCardsClassic] = useState([]);
 
+  const responsive = {
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 2
+    }
+  }
+
   useEffect(() => {
     const apiUrl = `${process.env.REACT_APP_API_URL}/munchkin-types`;
     axios.get(apiUrl).then((resp) => {
@@ -30,7 +41,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    const apiUrl = `${process.env.REACT_APP_API_URL}/munchkin-card/:Cthulhu`;
+    const apiUrl = `${process.env.REACT_APP_API_URL}/munchkin-card/Cthulhu`;
     axios.get(apiUrl).then((resp) => {
       console.log(resp.data);
       const allCards = resp.data;
@@ -39,8 +50,9 @@ function App() {
   }, []);
 
   useEffect(() => {
-    const apiUrl = `${process.env.REACT_APP_API_URL}/munchkin-card/:Classic`;
+    const apiUrl = `${process.env.REACT_APP_API_URL}/munchkin-card/Classic`;
     axios.get(apiUrl).then((resp) => {
+      console.log('')
       console.log(resp.data);
       const allCards = resp.data;
       setCardsClassic(allCards);
@@ -499,11 +511,15 @@ function App() {
                               <td>
                                 <div className='carousel-div'>
                                   <Carousel
-
-                                    activeSlideIndex={activeSlide}
-                                    onRequestChange={setActiveSlide}
-                                    itemsToShow={1}
-                                    itemsToScroll={1}
+                                    // activeSlideIndex={activeSlide}
+                                    // onRequestChange={setActiveSlide}
+                                    // itemsToShow={1}
+                                    // itemsToScroll={1}
+                                    // ssr={true} // means to render carousel on server-side.
+                                    // infinite={true}
+                                    // responsive={responsive}
+                                    autoPlay={false}
+                                    showThumbs={false}
                                   >
                                     {cardsCthulhu.map((card) => (
                                       <div
@@ -541,8 +557,8 @@ function App() {
                         <p>HERE2</p> */}
 
 
-                        
-                        
+
+
                       </div>
 
 
@@ -580,7 +596,7 @@ function App() {
             </section>
 
           </div>} />
-          <Route path="/classic" element={
+        <Route path="/classic" element={
           <div>
             { }
             <nav className="u-menu u-menu-dropdown u-offcanvas u-menu-1">
@@ -761,11 +777,13 @@ function App() {
                               <td>
                                 <div className='carousel-div'>
                                   <Carousel
-
-                                    activeSlideIndex={activeSlide}
-                                    onRequestChange={setActiveSlide}
-                                    itemsToShow={1}
-                                    itemsToScroll={1}
+                                    // activeSlideIndex={activeSlide}
+                                    // onRequestChange={setActiveSlide}
+                                    // itemsToShow={1}
+                                    // itemsToScroll={1}
+                                    // responsive={responsive}
+                                    autoPlay={false}
+                                    showThumbs={false}
                                   >
                                     {cardsClassic.map((card) => (
                                       <div
@@ -803,8 +821,8 @@ function App() {
                         <p>HERE2</p> */}
 
 
-                        
-                        
+
+
                       </div>
 
 
