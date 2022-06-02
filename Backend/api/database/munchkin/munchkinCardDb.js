@@ -23,7 +23,7 @@ module.exports.getCardTypes = function(callback){
 }
 
 module.exports.getCards = function(type, callback){
-    CardModel.find({"type" : type}, function(error, cards){
+    CardModel.find({typeMunchkin : type}, function(error, cards){
         callback(cards)
     })
 }

@@ -24,7 +24,7 @@ export default class Cthulhu extends Component {
                     </span>
                     ,{" "}
                     <span style={{ textDecoration: "underline !important" }} className="u-text-custom-color-1">
-                        для нескольких игроков
+                        Лавкрафт
                     </span>
                     ,{" "}
                     <span className="u-text-custom-color-1" style={{ textDecoration: "underline !important" }}>
@@ -32,7 +32,7 @@ export default class Cthulhu extends Component {
                     </span>
                     ,{" "}
                     <span className="u-text-custom-color-1" style={{ textDecoration: "underline !important" }}>
-                        экшн
+                        ужасы
                     </span>
                     ,{" "}
                     <span className="u-text-custom-color-1" style={{ textDecoration: "underline !important" }}>

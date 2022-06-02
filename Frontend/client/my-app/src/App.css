@@ -92,6 +92,35 @@
   margin: 8px auto 0 8px;
 }
 
+.long-descripton {
+  min-width: 800px;
+  clear: both;
+}
+
+.breaking-line {
+  white-space: pre-line;
+}
+
+.carousel-div {
+  min-width: 257px;
+  min-height: 450px;
+  max-width: 270px;
+  max-height: 450px;
+  padding-right: 10px;
+}
+
+.u-section-1 .u-image-2 {
+  min-width: 257px;
+  min-height: 400px;
+  max-width: 257px;
+  max-height: 400px;
+  /* margin: 8px auto 0 8px; */
+}
+
+.min-width-800 {
+  min-width: 800px;
+}
+
 .u-section-1 .u-text-2 {
   margin: -200px 0 0 247px;
 }
