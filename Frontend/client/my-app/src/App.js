@@ -28,19 +28,19 @@ function App() {
 
   useEffect(() => {
     const apiUrl = `${process.env.REACT_APP_API_URL}/munchkin-types`;
-    console.log("YA TUT VASHE ")
+
     axios.get(apiUrl).then((resp) => {
-      console.log(resp.data);
+      //console.log(resp.data);
       const allMunchkins = resp.data;
       setAppState(allMunchkins);
     });
-    console.log("I TUT TOJE")
+
   }, []);
 
   useEffect(() => {
     const apiUrl = `${process.env.REACT_APP_API_URL}/munchkin-card/Cthulhu`;
     axios.get(apiUrl).then((resp) => {
-      console.log(resp.data);
+      //console.log(resp.data);
       const allCards = resp.data;
       setCardsCthulhu(allCards);
     });
@@ -49,8 +49,8 @@ function App() {
   useEffect(() => {
     const apiUrl = `${process.env.REACT_APP_API_URL}/munchkin-card/Classic`;
     axios.get(apiUrl).then((resp) => {
-      console.log('')
-      console.log(resp.data);
+      //console.log('')
+      //console.log(resp.data);
       const allCards = resp.data;
       setCardsClassic(allCards);
     });
@@ -205,7 +205,19 @@ function App() {
                                 />
                               </div>
                               <div className="u-align-left u-form-group u-form-submit">
-
+                                  <button
+                                  onClick={(event) => {
+                                    event.preventDefault()
+                                    const apiUrl = `${process.env.REACT_APP_API_URL}/munchkin-types/${searchText}`;
+                                    axios.get(apiUrl).then((resp) => {
+                                      console.log('alo')
+                                      console.log(resp.data);
+                                      const allCards = resp.data;
+                                      setAppState(allCards);
+                                    });
+                                  }}>
+                                    Найти
+                                  </button>
                                 
                               </div>
                               <div className="u-form-send-message u-form-send-success">

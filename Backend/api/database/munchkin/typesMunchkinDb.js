@@ -21,8 +21,7 @@ module.exports.getTypesMunchkin = function(callback){
 }
 
 module.exports.findMunchkin = function(title, callback){
-    console.log(title + "ALOO")
-    TypeMunch.find({typeMunchkin : '/'+title+'/i'}, 'typeMunchkin', function(error, types){
+    TypeMunch.find({typeMunchkinRus : { $regex: title }}, 'typeMunchkin', function(error, types){
         callback(types)
     })
 }
