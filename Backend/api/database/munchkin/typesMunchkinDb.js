@@ -15,7 +15,14 @@ module.exports.saveTypeMunchkin = function(typeM, typeMunchkinRus, tags){
 }
 
 module.exports.getTypesMunchkin = function(callback){
-    TypeMunch.find({}, 'typeMunchkin', function(error, types){
+    TypeMunch.find({}, function(error, types){
+        callback(types)
+    })
+}
+
+module.exports.findMunchkin = function(title, callback){
+    console.log(title + "ALOO")
+    TypeMunch.find({typeMunchkin : '/'+title+'/i'}, 'typeMunchkin', function(error, types){
         callback(types)
     })
 }

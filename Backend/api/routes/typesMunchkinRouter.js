@@ -19,4 +19,12 @@ typesMunchkinRouter.post("/", jsonParser, function(req, res){
     res.sendStatus(201)
 })
 
+typesMunchkinRouter.get("/:title", jsonParser, function(req, res){
+    const title = req.params.title
+    
+    db.findMunchkin(title, function(types){
+        res.json(types)
+    })
+})
+
 module.exports = typesMunchkinRouter
