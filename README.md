@@ -16,7 +16,7 @@
 - React.js - клиентский фреймворк JavaScript
 - Node.js - веб сервер JavaScript
 
-- Python - API сайта
+- Python - API сайта.
 
 ## Для установки:
 
