@@ -12,7 +12,8 @@ cardRouter.get("/", function(req, res){
 
 cardRouter.get("/:typeMuchkin", function(req, res){
     const typeMuchkin = req.params.typeMuchkin
-    const searchText = req.query.search
+    searchText = req.query.search
+    if (searchText == undefined) searchText = ""
     db.getCards(typeMuchkin,searchText, function(cards){
         res.json(cards)
     })

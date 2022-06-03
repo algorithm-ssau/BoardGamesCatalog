@@ -23,6 +23,8 @@ module.exports.getCardTypes = function(callback){
 }
 
 module.exports.getCards = function(type,search, callback){
+    console.log(type)
+    console.log(search)
     CardModel.find({typeMunchkin : type, 
         cardNameRus : {$regex: search}}, function(error, cards){
         callback(cards)
