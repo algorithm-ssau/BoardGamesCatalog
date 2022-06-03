@@ -466,7 +466,7 @@ function App() {
                                 <button
                                   type="submit"
                                   defaultValue="submit"
-                                  onClick={(event) => {const apiUrl =`${process.env.REACT_APP_API_URL}/munchkin-card/${searchText}`;
+                                  onClick={(event) => {const apiUrl =`${process.env.REACT_APP_API_URL}/munchkin-card/Cthulhu/?search=${searchText}`;
                                   event.preventDefault();
                                   axios.get(apiUrl).then((resp) => {
                                     const allCards = resp.data;
@@ -735,11 +735,11 @@ function App() {
                                 <button
                                   type="submit"
                                   defaultValue="submit"
-                                  onClick={(event) => {const apiUrl =`${process.env.REACT_APP_API_URL}/munchkin-card/${searchText}`;
+                                  onClick={(event) => {const apiUrl =`${process.env.REACT_APP_API_URL}/munchkin-card/Classic/?search=${searchText}`;
                                   event.preventDefault();
                                   axios.get(apiUrl).then((resp) => {
                                     const allCards = resp.data;
-                                    setCardsCthulhu(allCards);
+                                    setCardsClassic(allCards);
                                   })}}
                                   className="u-form-control-hidden"
                                 > Найти </button>
