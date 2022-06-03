@@ -23,6 +23,8 @@
 - Скачать main ветку.
 
 - Через терминал установить все необходимые зависимости универсальной консольной командой `npm i`. В папках Backend и Frontend. 
+- npm i react-responsive-carousel --save
+- npm install -D env-cmd --save
 
 - Запуск сервера командой `npm run dev` в папке сервера (Backend).
 
