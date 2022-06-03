@@ -12,11 +12,12 @@ cardRouter.get("/", function(req, res){
 
 cardRouter.get("/:typeMuchkin", function(req, res){
     const typeMuchkin = req.params.typeMuchkin
-    db.getCards(typeMuchkin, function(cards){
+    searchText = req.query.search
+    if (searchText == undefined) searchText = ""
+    db.getCards(typeMuchkin,searchText, function(cards){
         res.json(cards)
     })
 })
-
 cardRouter.post("/", jsonParser, function(req, res){
     if (!req.body) res.sendStatus(400)
     

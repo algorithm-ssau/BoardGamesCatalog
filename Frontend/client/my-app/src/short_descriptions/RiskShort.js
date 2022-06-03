@@ -28,11 +28,7 @@ export default class RiskShort extends Component {
                     </span>
                     ,{" "}
                     <span className="u-text-custom-color-1" style={{ textDecoration: "underline !important" }}>
-                        фигурки
-                    </span>
-                    ,{" "}
-                    <span className="u-text-custom-color-1" style={{ textDecoration: "underline !important" }}>
-                        войска
+                        много вариаций
                     </span>
                 </p>
             </div>
