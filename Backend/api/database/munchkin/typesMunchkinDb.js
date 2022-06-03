@@ -15,7 +15,13 @@ module.exports.saveTypeMunchkin = function(typeM, typeMunchkinRus, tags){
 }
 
 module.exports.getTypesMunchkin = function(callback){
-    TypeMunch.find({}, 'typeMunchkin', function(error, types){
+    TypeMunch.find({}, function(error, types){
+        callback(types)
+    })
+}
+
+module.exports.findMunchkin = function(title, callback){
+    TypeMunch.find({typeMunchkinRus : { $regex: title }}, 'typeMunchkin', function(error, types){
         callback(types)
     })
 }

@@ -24,26 +24,23 @@ function App() {
   const [cardsCthulhu, setCardsCthulhu] = useState([]);
   const [cardsClassic, setCardsClassic] = useState([]);
 
-  const responsive = {
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 2
-    }
-  }
+  const [searchText, setStext] = useState([])
 
   useEffect(() => {
     const apiUrl = `${process.env.REACT_APP_API_URL}/munchkin-types`;
+
     axios.get(apiUrl).then((resp) => {
-      console.log(resp.data);
+      //console.log(resp.data);
       const allMunchkins = resp.data;
       setAppState(allMunchkins);
     });
+
   }, []);
 
   useEffect(() => {
     const apiUrl = `${process.env.REACT_APP_API_URL}/munchkin-card/Cthulhu`;
     axios.get(apiUrl).then((resp) => {
-      console.log(resp.data);
+      //console.log(resp.data);
       const allCards = resp.data;
       setCardsCthulhu(allCards);
     });
@@ -52,13 +49,17 @@ function App() {
   useEffect(() => {
     const apiUrl = `${process.env.REACT_APP_API_URL}/munchkin-card/Classic`;
     axios.get(apiUrl).then((resp) => {
-      console.log('')
-      console.log(resp.data);
+      //console.log('')
+      //console.log(resp.data);
       const allCards = resp.data;
       setCardsClassic(allCards);
     });
   }, []);
 
+  function changeSearchText(event){
+    console.log(event)
+    setStext(event.target.value)
+  }
   // state = {
   //   activeSlideIndex: 0,
   // };
@@ -71,7 +72,7 @@ function App() {
 
   const [activeSlide, setActiveSlide] = useState(0);
 
-  if (!appState || appState.length === 0) return <p>Нет данных.</p>
+
   return (
     <Router>
       <Routes>
@@ -184,31 +185,18 @@ function App() {
                         <div className="u-container-layout u-container-layout-1">
                           <div className="u-border-2 u-border-grey-75 u-expanded-width u-form u-radius-20 u-form-1">
                             <form
-                              action="//publish.nicepage.com/Form/Process"
-                              method="POST"
                               className="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form"
-                              source="email"
                               name="form"
                               style={{ padding: 10 }}
                             >
-                              <input
-                                type="hidden"
-                                id="siteId"
-                                name="siteId"
-                                defaultValue={1809772}
-                              />
-                              <input
-                                type="hidden"
-                                id="pageId"
-                                name="pageId"
-                                defaultValue={1809782}
-                              />
                               <div className="u-form-group u-form-name">
                                 <label htmlFor="name-aa34" className="u-label">
                                   Поиск
                                 </label>
                                 <input
                                   type="text"
+                                  value={searchText}
+                                  onChange={changeSearchText}
                                   placeholder="что хотите найти?"
                                   id="name-aa34"
                                   name="name"
@@ -217,17 +205,20 @@ function App() {
                                 />
                               </div>
                               <div className="u-align-left u-form-group u-form-submit">
-                                <a
-                                  href="#"
-                                  className="u-btn u-btn-round u-btn-submit u-button-style u-radius-9"
-                                >
-                                  Найти
-                                </a>
-                                <input
-                                  type="submit"
-                                  defaultValue="submit"
-                                  className="u-form-control-hidden"
-                                />
+                                  <button
+                                  onClick={(event) => {
+                                    event.preventDefault()
+                                    const apiUrl = `${process.env.REACT_APP_API_URL}/munchkin-types/${searchText}`;
+                                    axios.get(apiUrl).then((resp) => {
+                                      console.log('alo')
+                                      console.log(resp.data);
+                                      const allCards = resp.data;
+                                      setAppState(allCards);
+                                    });
+                                  }}>
+                                    Найти
+                                  </button>
+                                
                               </div>
                               <div className="u-form-send-message u-form-send-success">
                                 {" "}
@@ -274,7 +265,7 @@ function App() {
                                         />
                                         {
                                           (() => {
-                                            console.log(munchkin.typeMunchkin);
+                                            //console.log(munchkin.typeMunchkin);
                                             switch (String(munchkin.typeMunchkin)) {
                                               case 'Cthulhu': return <CthulhuShort />;
                                               case 'Classic': return <ClassicShort />;
@@ -466,6 +457,8 @@ function App() {
                                   type="text"
                                   placeholder="что хотите найти?"
                                   id="name-aa34"
+                                  value={searchText}
+                                  onChange={changeSearchText}
                                   name="name"
                                   className="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white"
                                   required=""
@@ -481,6 +474,13 @@ function App() {
                                 <input
                                   type="submit"
                                   defaultValue="submit"
+                                  onClick={() => {const apiUrl =`${process.env.REACT_APP_API_URL}/${searchText}`;
+                                  axios.get(apiUrl).then((resp) => {
+                                    console.log(searchText)
+                                    console.log(resp.data);
+                                    const allMunchkins = resp.data;
+                                    setAppState(allMunchkins);
+                                  })}}
                                   className="u-form-control-hidden"
                                 />
                               </div>
