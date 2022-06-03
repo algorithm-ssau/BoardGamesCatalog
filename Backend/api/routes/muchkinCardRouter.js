@@ -5,14 +5,15 @@ const jsonParser = express.json()
 var cardRouter = express.Router()
 
 cardRouter.get("/", function(req, res){
-    db.getCardCategories(function(categories){
+    db.getCardTypes(function(categories){
         res.json(categories)
     })
 })
 
 cardRouter.get("/:typeMuchkin", function(req, res){
     const typeMuchkin = req.params.typeMuchkin
-    db.getCards(typeMuchkin, function(cards){
+    const searchText = req.query.search
+    db.getCards(typeMuchkin,searchText, function(cards){
         res.json(cards)
     })
 })
@@ -29,5 +30,6 @@ cardRouter.post("/", jsonParser, function(req, res){
     db.saveCard(typeMunchkin, cardNameEng, cardNameRus, cardDescription, cardType)
     res.sendStatus(201)
 })
+
 
 module.exports = cardRouter

@@ -76,7 +76,6 @@ function App() {
   return (
     <Router>
       <Routes>
-        {/* <div className="App"> */}
         <Route path="/" element={
           <div>
             <nav className="u-menu u-menu-dropdown u-offcanvas u-menu-1">
@@ -210,7 +209,6 @@ function App() {
                                     event.preventDefault()
                                     const apiUrl = `${process.env.REACT_APP_API_URL}/munchkin-types/${searchText}`;
                                     axios.get(apiUrl).then((resp) => {
-                                      console.log('alo')
                                       console.log(resp.data);
                                       const allCards = resp.data;
                                       setAppState(allCards);
@@ -465,24 +463,17 @@ function App() {
                                 />
                               </div>
                               <div className="u-align-left u-form-group u-form-submit">
-                                <a
-                                  href="#"
-                                  className="u-btn u-btn-round u-btn-submit u-button-style u-radius-9"
-                                >
-                                  Найти
-                                </a>
-                                <input
+                                <button
                                   type="submit"
                                   defaultValue="submit"
-                                  onClick={() => {const apiUrl =`${process.env.REACT_APP_API_URL}/${searchText}`;
+                                  onClick={(event) => {const apiUrl =`${process.env.REACT_APP_API_URL}/munchkin-card/${searchText}`;
+                                  event.preventDefault();
                                   axios.get(apiUrl).then((resp) => {
-                                    console.log(searchText)
-                                    console.log(resp.data);
-                                    const allMunchkins = resp.data;
-                                    setAppState(allMunchkins);
+                                    const allCards = resp.data;
+                                    setCardsCthulhu(allCards);
                                   })}}
                                   className="u-form-control-hidden"
-                                />
+                                > Найти </button>
                               </div>
                               <div className="u-form-send-message u-form-send-success">
                                 {" "}
@@ -732,23 +723,26 @@ function App() {
                                   type="text"
                                   placeholder="что хотите найти?"
                                   id="name-aa34"
+                                  value={searchText}
+                                  onChange={changeSearchText}
                                   name="name"
                                   className="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white"
                                   required=""
                                 />
                               </div>
                               <div className="u-align-left u-form-group u-form-submit">
-                                <a
-                                  href="#"
-                                  className="u-btn u-btn-round u-btn-submit u-button-style u-radius-9"
-                                >
-                                  Найти
-                                </a>
-                                <input
+                                
+                                <button
                                   type="submit"
                                   defaultValue="submit"
+                                  onClick={(event) => {const apiUrl =`${process.env.REACT_APP_API_URL}/munchkin-card/${searchText}`;
+                                  event.preventDefault();
+                                  axios.get(apiUrl).then((resp) => {
+                                    const allCards = resp.data;
+                                    setCardsCthulhu(allCards);
+                                  })}}
                                   className="u-form-control-hidden"
-                                />
+                                > Найти </button>
                               </div>
                               <div className="u-form-send-message u-form-send-success">
                                 {" "}
